@@ -1,0 +1,268 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- IE=edge Compatible
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- CSS
+    ================================================== -->
+    <link href="~/lib/jquery-bonsai/jquery.bonsai.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/main.css" type="text/css">
+    <link href="~/sweet-alert/sweetalert.css" rel="stylesheet" />
+    <script src="~/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Favicons
+    ================================================== -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/logo.png">
+    <partial name="_BaseUrl" />
+</head>
+<body class="bg">
+    <header class="header">
+        <div class="logo">
+            <img src="~/images/logo.png" />
+        </div>
+        <div class="menu-icon"><a title="menu" href="javascript:void(0)"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
+        <div class="header-right">
+            <div class="searchFilter">
+
+                <div class="input-group">
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="label-icon"><i class="fa fa-filter"></i> Filter</span> <span class="caret">&nbsp;</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="category_filters">
+                            <li>
+                                <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio"><label for="all">All</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="radios" id="Design" value="Design"><label class="category-label" for="Design">Design</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="radios" id="Marketing" value="Marketing"><label class="category-label" for="Marketing">Marketing</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="radios" id="Programming" value="Programming"><label class="category-label" for="Programming">Programming</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="radios" id="Sales" value="Sales"><label class="category-label" for="Sales">Sales</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="radios" id="Support" value="Support"><label class="category-label" for="Support">Support</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="text" class="form-control search-input" placeholder="Enter Keyword...">
+                    <div class="input-group-btn">
+
+                        <button id="searchBtn" type="button" class="btn btn-search"><i class="fa fa-search"></i> <span class="mob-hide">Search</span></button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="notification">
+                <i class="fa fa-bell"></i>
+                <span class="count">2</span>
+            </div>
+
+            <div class="">
+                <div class="dropdown">
+                    <div class="user-profile dropdown-toggle" id="notificationButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="~/images/user-icon.png" />
+                        @*@User.Claims.FirstOrDefault(c=>c.Type== "Profile")?.Value*@
+                    </div>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationButton">
+                            <a class="dropdown-item nav-link text-dark" href="#">@User.Identity.Name</a>
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="side-bar" id="hamMenu">
+            <div class="navigation">
+                <ul class="mainMenu">
+                    <li>
+                        <a href="/" class="active">
+                            <i class="fa fa-dashboard"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-folder-o"></i>
+                            User Management
+                        </a>
+                        <ul class="subMenu">
+                            <li><a asp-controller="RolePermission" asp-action="Index">Role Management</a></li>
+                            <li><a asp-controller="UserManage" asp-action="GetUserList">User Management</a></li>
+                            @*<li><a asp-controller="Role" asp-action="Index">Role Permission</a></li>*@
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-file-text-o"></i>
+                            Content Management
+                        </a>
+                        <ul class="subMenu">
+                            <li><a asp-controller="BlogCategory" asp-action="Index">Blog Category</a></li>
+                            <li><a asp-controller="Blog" asp-action="Index">Blog Manage </a></li>
+                            <li><a asp-controller="ProductCategory" asp-action="Index">ProductCategory</a></li>
+                            <li><a asp-controller="Product" asp-action="Index">Product Manage</a></li>
+                            <li><a asp-controller="VehicleType" asp-action="Index">VehicleType</a></li>
+                            <li><a asp-controller="Company" asp-action="Index">Company</a></li>
+                            <li><a asp-controller="Vehicle" asp-action="Index">Vehicle</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-tv"></i>
+                            Products Section
+                        </a>
+                        <ul class="subMenu">
+                            <li><a asp-controller="TrainingSection" asp-action="Manage">Upload Content</a></li>
+                            <li><a asp-controller="TrainingSection" asp-action="Index">Agents Training</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://dev-76900158.okta.com/home/dev-76900158_therealtyagencysamllive_1/0oacpnwr1vx3PAOYc5d6/alncpw7464FmBp6FD5d6">
+                            <a target="_blank" href="https://dev-76900158.okta.com/home/dev-76900158_therealtyagencysamllive_1/0oacpnwr1vx3PAOYc5d6/alncpw7464FmBp6FD5d6">
+                                <i class="fa fa-user"></i>
+                                Marketing WebSite
+                            </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+    var myPath='@Configuration["MLSServerUrlInfo:MLSBASEURL"]';
+        </script>
+        <div class="right-content">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/lib/jquery-qubit/jquery.qubit.js"></script>
+    <script src="~/lib/jquery-bonsai/jquery.bonsai.js"></script>
+    <!-- All Javascript include here for fast loading of page -->
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/custom.js"></script>
+    <script src="~/sweet-alert/sweetalert.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        function myFunction(x) {
+            x.classList.toggle("change");
+            var hamBar = document.getElementById("hamMenu");
+            hamBar.classList.toggle("show");
+        }
+    </script>
+
+    <script type="text/javascript">
+        //columnchart_material chart
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Last', 'Running', 'Others', { role: 'style' }],
+                ['Jan', 1000, 400, 200, '#ccc'],
+                ['Feb', 1170, 460, 250, '#ccc'],
+                ['Mar', 660, 1120, 300, '#ccc'],
+                ['Apr', 1000, 400, 200, '#ccc'],
+                ['May', 1170, 460, 250, '#ccc'],
+                ['jun', 660, 1120, 300, '#ccc'],
+                ['Jul', 1000, 400, 200, '#ccc'],
+                ['Aug', 1170, 460, 250, '#ccc'],
+                ['Sept', 660, 1120, 300, '#ccc'],
+                ['Nov', 1030, 540, 350, '#ccc'],
+                ['Dec', 1030, 540, 350, '#ccc']
+            ]);
+
+            var options = {
+                chartArea: { top: 0 },
+                backgroundColor: 'transparent',
+                textStyle: { color: '#bbbbbb', padding: 0, },
+                colors: ['#b91e24', '#760000', '#a5a5a5', '#fec103'],
+                legend: {
+                    verticalAlign: "center", position: 'right', alignment: 'center', textStyle: {
+                        color: '#4d4d4d',
+                        fontSize: 18
+                    }
+                },
+                chartArea: {
+                    backgroundColor: {
+                        fill: '#FF0000',
+                        fillOpacity: 0
+                    },
+                },
+            };
+
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+    <script type="text/javascript">
+
+        //dotnet chart
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Total User', 11],
+                ['Recent Joinned', 12],
+                ['Buyers', 10],
+                ['Sellers', 15]
+            ]);
+
+            var options = {
+
+                title: 'My Daily Activities',
+                backgroundColor: 'transparent',
+                colors: ['#c3c3c3', '#ff3b18', '#760000', '#b91e24'],
+                pieHole: 0.9,
+
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

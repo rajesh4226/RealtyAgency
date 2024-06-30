@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AccessDenied</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    .AccessDenied-content {
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        .AccessDenied-message h1 {
+            color: #c41e2f;
+            font-family: unset;
+            font-weight: 700;
+            font-size: 50px;
+        }
+    .AccessDenied-message a {
+        background-color: #c41e2f;
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+    }
+        .AccessDenied-message img {
+            width: 140px;
+            margin-bottom: 60px;
+        }
+
+   
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <div class="AccessDenied-content row">
+                <div class="AccessDenied-img col-md-6">
+                    <img src="~/images/accessDenied.jpg" class="img-fluid" />
+                </div>
+                <div class="AccessDenied-message col-md-6">
+
+                    <img src="~/images/logo.png" />
+                    <h1>Access Denied</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+                    <a asp-controller="Home" asp-action="Index">Back to home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminGetPropertyListing" xml:space="preserve">
+    <value>usp_AdminGetPropertyListing</value>
+  </data>
+  <data name="BaseUrl" xml:space="preserve">
+    <value>http://therealtyagencyqa.chetu.com</value>
+  </data>
+  <data name="CreatedSuccess" xml:space="preserve">
+    <value>Added successfully!</value>
+  </data>
+  <data name="DataUpdated" xml:space="preserve">
+    <value>Record updated successfully!</value>
+  </data>
+  <data name="DeletedSuccess" xml:space="preserve">
+    <value>Record deleted successfully!</value>
+  </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>Error while deleting record!</value>
+  </data>
+  <data name="eewwq" xml:space="preserve">
+    <value>usp_AdminGetFeaturedListing</value>
+  </data>
+  <data name="ExistRecord" xml:space="preserve">
+    <value>Agent Already Existed !</value>
+  </data>
+  <data name="FetchError" xml:space="preserve">
+    <value>Error while getting info from server!</value>
+  </data>
+  <data name="GetAllCulture" xml:space="preserve">
+    <value>usp_GetAllCulture</value>
+  </data>
+  <data name="GetAllFAQ" xml:space="preserve">
+    <value>usp_GetAllFAQ</value>
+  </data>
+  <data name="GetAllGetAllPartners" xml:space="preserve">
+    <value>usp_GetAllGetAllPartners</value>
+  </data>
+  <data name="GetFeaturedGalleryImages" xml:space="preserve">
+    <value>usp_GetFeaturedGalleryImages</value>
+  </data>
+  <data name="GetSingleFeaturedListingByPropertyId" xml:space="preserve">
+    <value>usp_GetSingleFeaturedListingByPropertyId</value>
+  </data>
+  <data name="GetSingleFloorPlanImage" xml:space="preserve">
+    <value>usp_GetSingleFloorPlanImage</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Invalid user name or password!</value>
+    <comment>Invalid user name or password!</comment>
+  </data>
+  <data name="IsExistFeaturedListingInfo" xml:space="preserve">
+    <value>usp_IsExistFeaturedListingInfo</value>
+  </data>
+  <data name="RootPath" xml:space="preserve">
+    <value>D:\Project Data\Repository\RealtyAgencyMLS_V_1.0\RealtyAgencyMLS\RealtyAgencyMLS\wwwroot</value>
+  </data>
+  <data name="TrainingDocument" xml:space="preserve">
+    <value>TrainingDocument</value>
+  </data>
+  <data name="TrainingVideo" xml:space="preserve">
+    <value>TrainingVideo</value>
+  </data>
+  <data name="usp_GetAgentByAppUserID" xml:space="preserve">
+    <value>usp_GetAgentByAppUserID</value>
+  </data>
+  <data name="usp_GetAgentsListWithoutFilterd" xml:space="preserve">
+    <value>usp_GetAgentsListWithoutFilterd</value>
+  </data>
+  <data name="usp_GetAgetntServiceById" xml:space="preserve">
+    <value>usp_GetAgetntServiceById</value>
+    <comment>Get exist Agent service </comment>
+  </data>
+  <data name="usp_GetAllAgetntCommercial" xml:space="preserve">
+    <value>usp_GetAllAgetntCommercial</value>
+  </data>
+  <data name="usp_GetAllAgetntPropertyManagement" xml:space="preserve">
+    <value>usp_GetAllAgetntPropertyManagement</value>
+  </data>
+  <data name="usp_GetAllBlogCategory" xml:space="preserve">
+    <value>usp_GetAllBlogCategory</value>
+  </data>
+  <data name="usp_GetAllBlogs" xml:space="preserve">
+    <value>usp_GetAllBlogs</value>
+  </data>
+  <data name="usp_GetAllCompany" xml:space="preserve">
+    <value>usp_GetAllCompany</value>
+  </data>
+  <data name="usp_GetAllGetAllThingsToDo" xml:space="preserve">
+    <value>usp_GetAllGetAllThingsToDo</value>
+  </data>
+  <data name="usp_GetAllJoinTRAOffer" xml:space="preserve">
+    <value>usp_GetAllJoinTRAOffer</value>
+  </data>
+  <data name="usp_GetAllModule" xml:space="preserve">
+    <value>usp_GetAllModule</value>
+  </data>
+  <data name="usp_GetAllPermissions" xml:space="preserve">
+    <value>usp_GetAllPermissions</value>
+  </data>
+  <data name="usp_GetAllProductCategory" xml:space="preserve">
+    <value>usp_GetAllProductCategory</value>
+  </data>
+  <data name="usp_GetAllProducts" xml:space="preserve">
+    <value>usp_GetAllProducts</value>
+  </data>
+  <data name="usp_GetAllTrainingSection" xml:space="preserve">
+    <value>usp_GetAllTrainingSection</value>
+  </data>
+  <data name="usp_GetAllTrainingVideos" xml:space="preserve">
+    <value>usp_GetAllTrainingVideos</value>
+    <comment>Get All Training Videos</comment>
+  </data>
+  <data name="usp_GetAllUpComingEvents" xml:space="preserve">
+    <value>usp_GetAllUpComingEvents</value>
+  </data>
+  <data name="usp_GetAllUsers" xml:space="preserve">
+    <value>usp_GetAllUsers</value>
+  </data>
+  <data name="usp_GetAllVehicle" xml:space="preserve">
+    <value>usp_GetAllVehicle</value>
+  </data>
+  <data name="usp_GetAllVehicleType" xml:space="preserve">
+    <value>usp_GetAllVehicleType</value>
+  </data>
+  <data name="usp_GetEthicsAboutCompany" xml:space="preserve">
+    <value>usp_GetEthicsAboutCompany</value>
+  </data>
+  <data name="usp_GetPropertyFirstPhotoName" xml:space="preserve">
+    <value>usp_GetPropertyFirstPhotoName</value>
+  </data>
+  <data name="usp_UpdateLastProperty" xml:space="preserve">
+    <value>usp_UpdateLastProperty</value>
+  </data>
+  <data name="ValidationFieldRequired" xml:space="preserve">
+    <value>Please fill in all required fields correctly!</value>
+  </data>
+</root>

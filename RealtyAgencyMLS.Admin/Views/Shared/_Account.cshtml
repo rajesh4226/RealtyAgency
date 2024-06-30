@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/main.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon/favicon.png">
+</head>
+<body class="bg container-fluid">
+    <div class="login-block row">
+        <div class="col-12 col-md-6 login-left">
+            @RenderBody()
+        </div>
+        <div class="col-12 col-md-6 login-right">
+            <h1>FIND YOUR DREAM <span>HOME</span></h1>
+            <p>WE OFFER BEST REAL ESTATE DEALS</p>
+            <img src="~/images/login-img.png" class="login-img" />
+        </div>
+    </div>
+    <!-- All Javascript include here for fast loading of page -->
+    <script type="text/javascript" src="~/js/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/custom.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

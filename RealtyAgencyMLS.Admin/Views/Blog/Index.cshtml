@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card custom-card overflow">
+            <div class="col-md-12">
+                <h2 class="main-head">Blogs</h2>
+                <button type="button" id="btnAddNewBlogPopup" class="btn btn-sm btn-info mr-2">Add New</button>
+                <hr />
+                <table id="tblBlogs" class="table dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>Blog ID</th>
+                            <th>Heading</th>
+                            <th>Category</th>
+                            <th>Tags</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Create" model="@(new BlogCreateModel())" />
+<div id="editPartial"></div>
+<script src="~/js/manage-blog.js"></script>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

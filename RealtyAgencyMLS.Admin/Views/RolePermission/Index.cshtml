@@ -1,0 +1,60 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{ ViewData["Title"] = "Role List"; }
+
+<h2></h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card custom-card overflow">
+            <div class="col-md-12">
+                <h2 class="main-head">Manage Roles</h2>
+                <a asp-action="Create"><span type="button" class="btn btn-sm btn-info mr-2">Create Role</span></a>
+                <hr />
+                <table id="tblRoles" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"> @Html.DisplayNameFor(m => m.Name) </th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+            <tr>
+                <td colspan="2">There is no role!</td>
+            </tr>}
+                        @foreach (var role in Model)
+                        {
+            <tr>
+                <td>@Html.DisplayFor(m => role.Name)</td>
+                <td>
+                    @if (role.Name == "Admin")
+                    {
+                     <a class="btn btn-default btn-info customhref" asp-action="Edit" asp-route-id="@role.Id">Edit</a>
+                        <label></label>
+                    }
+                    else
+                    {
+                <div>
+                    <a class="btn btn-default btn-info customhref" asp-action="Edit" asp-route-id="@role.Id">Edit</a>
+                    <button type="button" class="btn btn-sm btn-danger btnDelete" data-key="@role.Id">Delete</button>
+                </div>
+                    }
+                </td>
+            </tr>}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/manage-role-permssion.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tblRoles').DataTable();
+    });
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

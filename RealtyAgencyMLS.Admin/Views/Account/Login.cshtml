@@ -1,0 +1,36 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Account.cshtml";
+}
+<div class="login-outer">
+    <a href="#" class="login-logo"><img class="img-fluid" src="~/images/logo.png" /></a>
+    <div class="login-panel">
+        <h1>Login</h1>
+        <partial name="_StatusMessage" for="StatusMessage" />
+        <form id="frmLogin" method="post" asp-action="Login" asp-controller="Account" autocomplete="off">
+            <fieldset class="form-group">
+                <input type="text" asp-for="Email" class="form-control" placeholder="Email">
+                <img src="~/images/user-id-icon.png" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+                <img src="~/images/password.png" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </fieldset>
+            <fieldset class="form-group remember">
+                <div class="logincheck">
+                    <input type="checkbox" class="custom-check" asp-for="RememberMe">
+                    <label asp-for="RememberMe">Remember me</label>
+                </div>
+                <a asp-controller="Account" asp-action="ForgotPassword">Forgot password?</a>
+            </fieldset>
+            <button type="submit" id="btnAccountLogin" class="btn login-btn">Login</button>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

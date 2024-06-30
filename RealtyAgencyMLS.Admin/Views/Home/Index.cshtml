@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 class="main-head">Overview</h1>
+<div class="row overview">
+    <div class="col-md-6 col-lg-3">
+        <div class="overview-block">
+            <div class="sales-icon">
+                <img src="~/images/marcket-size.png" />
+            </div>
+            <div class="overview-content">
+                <div class="over-head">
+                    <h2>$117,000</h2>
+                    <p class="profit-value">+5.2%</p>
+                </div>
+                <p>Market Size</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="overview-block">
+            <div class="sales-icon">
+                <img src="~/images/rate-icon.png" />
+            </div>
+            <div class="overview-content">
+                <div class="over-head">
+                    <h2>18.63%</h2>
+                    <p class="loss-value">-3.20%</p>
+                </div>
+                <p>Engagement Rate</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="overview-block">
+            <div class="sales-icon">
+                <img src="~/images/groth-icon.png" />
+            </div>
+            <div class="overview-content">
+                <div class="over-head">
+                    <h2>+33.62%</h2>
+                    <p class="profit-value">+ 4.72%</p>
+                </div>
+                <p>Growth</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+        <div class="overview-block">
+            <div class="sales-icon">
+                <img src="~/images/sales-icon.png" />
+            </div>
+            <div class="overview-content">
+                <div class="over-head">
+                    <h2>$22,256</h2>
+                    <p class="profit-value">+ 20%</p>
+                </div>
+                <p>Total Sales</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <h2 class="main-head mt-3">
+            Sales
+            <span class="float-right">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>Last Week</option>
+                            <option selected>Last 15 Days</option>
+                            <option>Last Month</option>
+                            <option>Last Year</option>
+                        </select>
+                    </div>
+                </form>
+            </span>
+        </h2>
+
+        <div id="columnchart_material"></div>
+
+    </div>
+    <div class="col-sm-4">
+        <div class="card custom-card mt-3">
+            <h2 class="main-head">Agent Registration</h2>
+            <div id="donutchart"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card custom-card mt-3 overflow">
+            <h2 class="main-head">
+                Top Selling Product
+                <span class="float-right"><a href="">Export</a></span>
+            </h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Property Name</th>
+                            <th scope="col">Rooms</th>
+                            <th scope="col">Organizer</th>
+                            <th scope="col">Date Time</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Altius Vibe</th>
+                            <td>4</td>
+                            <td>Organizer 1</td>
+                            <td>07 April 2018</td>
+                            <td>$55.36</td>
+                            <td>32</td>
+                            <td>$55.36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Riviera Blues</th>
+                            <td>4</td>
+                            <td>Organizer 1</td>
+                            <td>15 March 2019</td>
+                            <td>$55.36</td>
+                            <td>32</td>
+                            <td>$55.36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ship Shaligram</th>
+                            <td>4</td>
+                            <td>Organizer 1</td>
+                            <td>10 May 2020</td>
+                            <td>$55.36</td>
+                            <td>32</td>
+                            <td>$55.36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Riviera Blues</th>
+                            <td>4</td>
+                            <td>Organizer 1</td>
+                            <td>15 Jan 2020</td>
+                            <td>$55.36</td>
+                            <td>32</td>
+                            <td>$55.36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Crimson</th>
+                            <td>4</td>
+                            <td>Organizer 1</td>
+                            <td>15 Jan 2020</td>
+                            <td>$55.36</td>
+                            <td>32</td>
+                            <td>$55.36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Riviera Blues</th>
+                            <td>4</td>
+                            <td>Organizer 1</td>
+                            <td>10 May 2020</td>
+                            <td>$55.36</td>
+                            <td>32</td>
+                            <td>$55.36</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

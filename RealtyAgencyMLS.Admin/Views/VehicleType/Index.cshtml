@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card custom-card overflow">
+            <div class="col-md-12">
+                <h2 class="main-head">Vehicle Type</h2>
+                <button type="button" id="btnAddNewVehicleTypePopup" class="btn btn-sm btn-info mr-2">Add New</button>
+                <hr />
+                <table id="VehicleTypes" class="table table-striped table-bordered dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>VehicleType ID</th>
+                            <th>VehicleType Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_Create" model="@(new VehicleTypeCreateModel())" />
+<div id="editPartial"></div>
+<script src="~/js/manage-vehicletype.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

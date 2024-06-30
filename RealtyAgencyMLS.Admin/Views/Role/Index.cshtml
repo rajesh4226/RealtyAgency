@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card custom-card overflow">
+            <div class="col-md-12">
+                <h2 class="main-head">Manage Roles</h2>
+                <button type="button" id="btnAddNewRole" class="btn btn-sm btn-info mr-2">Add New</button>
+                <hr />
+                <table id="tblRoles" class="table dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            @*<th>Id</th>*@
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var role in Model)
+                        {
+                            <tr>
+                                <td>@role.Name</td>
+                                <td>
+                                    @if (role.Name == "Admin")
+                                    {
+                                        <button type="button" class="btn btn-sm btn-info mr-2 btnEdit" data-key="@role.Id">Edit</button>
+                                        <label></label>
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            <button type="button" class="btn btn-sm btn-info mr-2 btnEdit" data-key="@role.Id">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-danger btnDelete" data-key="@role.Id">Delete</button>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_Create" model="@(new Microsoft.AspNetCore.Identity.IdentityRole())" />
+
+<div id="editPartial"></div>
+<script src="~/js/manage-role.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tblRoles').DataTable();
+    });
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

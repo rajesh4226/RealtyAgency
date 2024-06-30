@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card custom-card overflow">
+            <div class="col-md-12">
+                <h2 class="main-head">Products</h2>
+                <button type="button" id="btnAddNewProductPopup" class="btn btn-sm btn-info mr-2">Add New</button>
+                <hr />
+                <table id="tblProducts" class="table dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>ProductID</th>
+                            <th>CategoryName</th>
+                            <th>ProductName</th>
+                            <th>Price</th>
+                            <th>MFG</th>
+                            <th>EXP</th>
+                            <th>Heading</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Create" model="@(new ProductCreateModel())" />
+<div id="editPartial"></div>
+<script src="~/js/manage-product.js"></script>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
