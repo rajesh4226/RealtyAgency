@@ -1,48 +1,183 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RealtyAgencyMLS.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>TheRealtyAgency</title>
+    <link rel="icon" type="image/png" href="~/realtyagancy/img/favicon.png" sizes="64x64" />
+    <link rel="stylesheet" href="~/realtyagancy/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/realtyagancy/css/style.css" />
+    <link rel="stylesheet" href="~/realtyagancy/css/responsive.css" />
+    <link href="~/sweet-alert/sweetalert.css" rel="stylesheet" />
+    <script src="~/realtyagancy/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.4/css/lightgallery.min.css">
+    <partial name="_BaseUrl" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RealtyAgencyMLS.Web</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <!-- Header Section   -->
+    <header class="abt-header shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light background-header fixed-top px-3">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/realtyagancy/img/logo-dark.png" alt="Logo" class="logo pt-0" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse header-menu" id="navbarNav">
+                <ul class="navbar-nav ml-auto header-abt-menu">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/ForSell/MapView/?sale_rent=For Sell">Buy <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/ForRent/MapView/?sale_rent=For Rent">Rent</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="PropertyValuation" asp-action="Sell">Sell</a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <div class="dropdown-menu sub-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-controller="Commercial-Department" asp-action="Index">Commercial Department </a>
+                            <a class="dropdown-item" asp-controller="Property-Management" asp-action="Index">Property Management </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Offices</a>
+                        <div class="dropdown-menu sub-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-controller="Agents" asp-action="Yuma">Yuma </a>
+                            <a class="dropdown-item" asp-controller="Agents" asp-action="Foothills">Foothills </a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Agents" asp-action="Index">Agents</a>
+                    </li>
+                </ul>
+                <div class="tr-btn">
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - RealtyAgencyMLS.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderBody();
+
+
+    <!-- Affiliate Partners Section -->
+    <partial name="_AffiliatePartners" />
+    <!-- Footer Section -->
+    <partial name="_FooterSection" />
+
+    <script src="~/realtyagancy/js/popper.js"></script>
+    <script src="~/realtyagancy/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/save-user-property.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.4/js/lightgallery-all.min.js"></script>
+    <script src="~/realtyagancy/js/custom.js"></script>
+    <script src="~/sweet-alert/sweetalert.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWaurZYBiCcsjXXat0tnbFfulxfpWPDk0&callback=&libraries=places&v=weekly"></script>
     @RenderSection("Scripts", required: false)
+    <!-- Modal -->
+    <script>
+        //Autocomplete Google map
+        if ($('#autocomplete').length) {
+            let autocomplete;
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById("autocomplete"),
+                { types: ["geocode"] }
+            );
+            autocomplete.setFields(["address_component"]);
+        }
+    </script>
+    <div id="loginModalRealty" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                    <a class="navbar-brand text-center w-100" href="/"><img src="~/realtyagancy/img/logo-dark.png" alt="Logo" class="logo pt-0" /></a>
+                </div>
+                <div class="modal-body">
+                    <div class="mt-2">
+                        <nav>
+                            <div class="nav nav-tabs modal-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">LOGIN</a>
+                                <a class="nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="false">REGISTER</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content mt-4" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                                <form id="frmModalLogin" method="POST" autocomplete="off">
+                                    <div class="form-group">
+                                        <label for="logEmail">Email address (*)</label>
+                                        <input type="email" class="form-control" id="logEmail" autocomplete="off" required>
+                                        @*<small id="emailErrorHelp" class="form-text text-muted"></small>*@
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="logPassword">Password  (*)</label>
+                                        <input type="password" class="form-control" id="logPassword" autocomplete="off" required>
+                                        @*<small id="passwordErrorHelp" class="form-text text-muted"></small>*@
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="RememberMe">
+                                        <label class="form-check-label" for="RememberMe">Remember me</label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" id="btnModalLogin" class="modal-login-btn">Submit</button>
+                                        <p id="login-error"></p>
+                                    </div>
+
+                                </form>
+                                <hr />
+                                <div class="text-center w-100">
+                                    <a id="forgot-password" href="/Identity/Account/ForgotPassword">Forgot your password?</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade pb-3" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+                                <form id="frmModalRegister" method="post" autocomplete="off">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="RegFirstName">First Name  (*)</label>
+                                            <input type="text" class="form-control" id="RegFirstName" autocomplete="off">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="RegLastName">Last Name  (*)</label>
+                                            <input type="text" class="form-control" id="RegLastName" autocomplete="off">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="RegEmail">Email  (*)</label>
+                                            <input id="RegEmail" class="form-control" autocomplete="off" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="RegPassword">Password  (*)</label>
+                                            <input type="password" id="RegPassword" class="form-control" autocomplete="off" />
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center pt-2">
+                                        <button type="button" id="btnModalRegister" class="modal-login-btn">Register</button>
+                                        <p id="register-error"></p>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer">
+                    <div class="text-center w-100">
+                        <a id="forgot-password">Already have an Account? Log In</a>
+                       </div>
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>-->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
