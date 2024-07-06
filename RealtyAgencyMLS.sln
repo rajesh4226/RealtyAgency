@@ -11,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealtyAgencyMLS.Model", "Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealtyAgencyMLS.Admin", "RealtyAgencyMLS.Admin\RealtyAgencyMLS.Admin.csproj", "{4EF77533-4E84-4FA8-A269-F3E4A1F4CBC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtyAgencyMLS.Web", "RealtyAgencyMLS.Web\RealtyAgencyMLS.Web.csproj", "{8B05B1ED-156F-4FC6-8D4E-519C56428549}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6972B09E-0934-499F-B909-8DEB0DA9CEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6972B09E-0934-499F-B909-8DEB0DA9CEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6972B09E-0934-499F-B909-8DEB0DA9CEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6972B09E-0934-499F-B909-8DEB0DA9CEE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8D73D46-D576-45D6-95E9-3380D0C46FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C8D73D46-D576-45D6-95E9-3380D0C46FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8D73D46-D576-45D6-95E9-3380D0C46FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,34 +35,15 @@ Global
 		{4EF77533-4E84-4FA8-A269-F3E4A1F4CBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EF77533-4E84-4FA8-A269-F3E4A1F4CBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EF77533-4E84-4FA8-A269-F3E4A1F4CBC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2E62F4D-2871-46B8-97DE-E2CEBDB63D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2E62F4D-2871-46B8-97DE-E2CEBDB63D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2E62F4D-2871-46B8-97DE-E2CEBDB63D13}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{A2E62F4D-2871-46B8-97DE-E2CEBDB63D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2E62F4D-2871-46B8-97DE-E2CEBDB63D13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2E62F4D-2871-46B8-97DE-E2CEBDB63D13}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8B05B1ED-156F-4FC6-8D4E-519C56428549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B05B1ED-156F-4FC6-8D4E-519C56428549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B05B1ED-156F-4FC6-8D4E-519C56428549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B05B1ED-156F-4FC6-8D4E-519C56428549}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACC65260-8FB5-4519-9730-20F8F1104DF3}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = RealtyAgencyMLS.BAL\\RealtyAgencyMLS.BAL.csproj
-		SccProjectName1 = RealtyAgencyMLS.BAL
-		SccLocalPath1 = RealtyAgencyMLS.BAL
-		SccProjectUniqueName2 = RealtyAgencyMLS.DAL\\RealtyAgencyMLS.DAL.csproj
-		SccProjectName2 = RealtyAgencyMLS.DAL
-		SccLocalPath2 = RealtyAgencyMLS.DAL
-		SccProjectUniqueName3 = RealtyAgencyMLS.Model\\RealtyAgencyMLS.Model.csproj
-		SccProjectName3 = RealtyAgencyMLS.Model
-		SccLocalPath3 = RealtyAgencyMLS.Model
-		SccProjectUniqueName5 = RealtyAgencyMLS.Admin\\RealtyAgencyMLS.Admin.csproj
-		SccProjectName5 = RealtyAgencyMLS.Admin
-		SccLocalPath5 = RealtyAgencyMLS.Admin
 	EndGlobalSection
 EndGlobal

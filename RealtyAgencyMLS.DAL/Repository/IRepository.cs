@@ -21,5 +21,6 @@ namespace RealtyAgencyMLS.DAL.Repository
         Task<bool> IsExists(string procedureName, DynamicParameters param);
         Task<T> GetByQuery(string procedureName, DynamicParameters param);
         Task<IEnumerable<T>> GetAllByQuery(string procedureName, DynamicParameters param);
+        Task<SingleBlogDTO> GetSingleBlogDetails(string procedureName, DynamicParameters param);
     }
 }

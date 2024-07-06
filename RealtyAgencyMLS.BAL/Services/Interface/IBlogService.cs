@@ -23,6 +23,7 @@ namespace RealtyAgencyMLS.BAL.Services.Interface
         Task<IEnumerable<Blog>> GetAllByQuery(string procedureName, DynamicParameters param);
 
         Task<IEnumerable<BlogDTO>> GetAllForDisplayByQuery(string procedureName, DynamicParameters param);
+        Task<SingleBlogDTO> GetSingleBlogDetailsList(string procedureName, DynamicParameters param);
     }
 }
 

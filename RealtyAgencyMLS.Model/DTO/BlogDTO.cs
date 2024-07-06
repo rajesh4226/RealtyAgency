@@ -17,5 +17,6 @@ namespace RealtyAgencyMLS.Model.DTO
         public string BlogUrl { get; set; }
         public string ShortDescription { get; set; }
         public int TotalRecords { get; set; }
+        public int TotalPages { get; set; }
     }
 }
