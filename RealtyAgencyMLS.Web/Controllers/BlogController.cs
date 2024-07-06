@@ -18,13 +18,11 @@ namespace RealtyAgencyMLS.Web.Controllers
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
-        private readonly IBlogCategoryService _blogCategoryService;
         private readonly IMapper _mapper;
 
-        public BlogController(IBlogCategoryService blogCategoryService, IBlogService blogService, IMapper mapper)
+        public BlogController(IBlogService blogService, IMapper mapper)
         {
             _blogService = blogService;
-            _blogCategoryService = blogCategoryService;
             _mapper = mapper;
         }
         public async Task<IActionResult> Index(string currPage, string categoryName)

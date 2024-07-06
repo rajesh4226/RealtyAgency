@@ -1,0 +1,98 @@
+﻿@model BlogViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page Title-->
+<div class="custom-container">
+    <div>
+        <h2 class="title-heading">Latest Updates</h2>
+    </div>
+</div>
+<!-- Page Title End-->
+
+<div class="custom-container">
+    @{
+        bool flag = true;
+        foreach (var item in Model.Blogs)
+        {
+            if (flag)
+            {
+                <div class="row blog-gap-row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 blog-left-content d-flex justify-content-center flex-column flex-wrap mb-sm-5">
+                        <h4>@item.Heading</h4>
+                        <p style="white-space: pre-line">@Html.Raw(item.ShortDescription)</p>
+                        <p class="mb-4"><strong>@item.CreatedDate.ToString("MMMM dd,  yyyy")</strong></p>
+                        <div class="blog-btn">
+                            <a href="/Blogs/Details/@item.PID/@item.BlogUrl" class="agent-list-more-btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="img-blog-border">
+                            <img src="@Configuration["AdminServerUrlInfo:URL"]/@item.ImagePath" alt="@item.Heading" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row blog-gap-row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="img-blog-border">
+                            <img src="@Configuration["AdminServerUrlInfo:URL"]/@item.ImagePath" alt="@item.Heading" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 blog-left-content d-flex justify-content-center flex-column flex-wrap mb-sm-5">
+                        <h4>@item.Heading</h4>
+                        <p style="white-space: pre-line">@Html.Raw(item.ShortDescription)</p>
+                        <p class="mb-4"><strong>@item.CreatedDate.ToString("MMMM dd,  yyyy")</strong></p>
+                        <div class="blog-btn">
+                            <a href="/Blogs/Details/@item.PID/@item.BlogUrl" class="agent-list-more-btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            flag = flag ? false : true;
+        }
+    }
+</div>
+
+<!-- Pagination Section -->
+<section class="custom-container agent-listing-pagination">
+    <div class="pagination-center">
+        <div class="pagination">
+            @{
+                if (Model.TotalPages > 1)
+                {
+                    var startIndex = Math.Max(Model.CurrentPage - 3, 1);
+                    var finishIndex = Math.Min(Model.CurrentPage + 3, Model.TotalPages);
+                    @if (Model.CurrentPage > 1)
+                    {
+                        <a onclick="location.href = `${baseUri}/Blogs/?currPage=${@(Model.CurrentPage - 1)}&categoryName=@ViewContext.HttpContext.Request.Query["categoryName"]`;"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+                    }
+                    @for (var i = startIndex; i <= finishIndex; i++)
+                    {
+                        var cssclass = Model.CurrentPage == i ? "active" : "";
+                        <a class="@cssclass" onclick="location.href = `${baseUri}/Blogs/?currPage=${@i}&categoryName=@ViewContext.HttpContext.Request.Query["categoryName"]`;">@i</a>
+                    }
+                    @if (finishIndex < Model.TotalPages)
+                    {
+                        <a onclick="location.href = `${baseUri}/Blogs/?currPage=${@(finishIndex + 1)}&categoryName=@ViewContext.HttpContext.Request.Query["categoryName"]`;">
+                            ...
+                        </a>
+                    }
+                    @if (Model.CurrentPage < Model.TotalPages)
+                    {
+                        <a onclick="location.href = `${baseUri}/Blogs/?currPage=${@(Model.CurrentPage + 1)}&categoryName=@ViewContext.HttpContext.Request.Query["categoryName"]`;">
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        </a>
+                    }
+                }
+            }
+
+        </div>
+    </div>
+</section>

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RealtyAgencyMLS.BAL.EmailServices;
 using RealtyAgencyMLS.BAL.Filters;
 using RealtyAgencyMLS.BAL.Services.Implementation;
 using RealtyAgencyMLS.BAL.Services.Interface;
@@ -21,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IConnectionFactory = RealtyAgencyMLS.DAL.Connection.IConnectionFactory;
 
 namespace RealtyAgencyMLS.Web
 {
@@ -64,6 +66,9 @@ namespace RealtyAgencyMLS.Web
 
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddScoped<IBlogService, BlogService>();
+            services.AddScoped<IConnectionFactory, ConnectionFactory>();
+            services.AddScoped<IBlogCategoryService, BlogCategoryService>();
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddSingleton<IMvcControllerDiscovery, MvcControllerDiscovery>();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
