@@ -100,11 +100,24 @@ namespace RealtyAgencyMLS.DAL.Repository
                 return await conn.QueryFirstOrDefaultAsync<T>(procedureName, param, commandType: CommandType.StoredProcedure);
             }
         }
-        
+
 
         public async Task<bool> AddAsync(List<T> entity, string tableName)
         {
             return await Task.FromResult(true);
         }
-    }
+        public async Task<SingleBlogDTO> GetSingleBlogDetails(string procedureName, DynamicParameters param)
+        {
+            var singleBlogData = new SingleBlogDTO();
+            using (IDbConnection conn = new SqlConnection(_connectionFactory.GetConnectionString()))
+            {
+                var reader = await conn.QueryMultipleAsync(procedureName, param, commandType: CommandType.StoredProcedure);
+                singleBlogData.Blog = await reader.ReadFirstAsync<BlogDTO>();
+                singleBlogData.BlogCategory = await reader.ReadAsync<BlogCategoryDTO>();
+                singleBlogData.RecentBlogs = await reader.ReadAsync<BlogDTO>();
+                singleBlogData.RelatedBlogs = await reader.ReadAsync<BlogDTO>();
+                return singleBlogData;
+            };
+        }
+    }    
 }
