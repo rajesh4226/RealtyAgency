@@ -1,0 +1,5 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+<script>
+    var baseUri = "@Configuration["MLSServerUrlInfo:BASEURL"]";
+</script>

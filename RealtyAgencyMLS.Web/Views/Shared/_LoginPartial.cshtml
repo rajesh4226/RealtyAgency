@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<RealtyAgencyMLS.Model.ApplicationUser> SignInManager
+@inject UserManager<RealtyAgencyMLS.Model.ApplicationUser> UserManager
+
+<ul class="mb-0">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+        <li class="nav-item btn-red">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fa fa-user fa-icon"></i> @user.FirstName</a>
+        </li>
+        <li class="nav-item btn-red">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-white"><i class="fa fa-sign-out fa-icon"></i> Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item btn-red">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item btn-red">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-user fa-icon"></i>Login</a>
+        </li>
+    }
+</ul>
+
+
