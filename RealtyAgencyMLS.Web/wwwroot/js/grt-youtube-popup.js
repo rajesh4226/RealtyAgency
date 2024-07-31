@@ -6,7 +6,6 @@
 
 			// Get video ID
 			var getvideoid = $(this).attr("youtubeid").split("v=")[1];
-			debugger;
 			// Default options
 			var settings = $.extend({
 				videoID: getvideoid,

@@ -54,9 +54,9 @@ namespace RealtyAgencyMLS.BAL.Services.Implementation
         {
             return await _repository.UpdateAsync(blog);
         }
-        public async Task<SingleBlogDTO> GetSingleBlogDetailsList(string procedureName, DynamicParameters param)
+        public  Task<SingleBlogDTO> GetSingleBlogDetailsList(string procedureName, DynamicParameters param)
         {
-            return await _repository.GetSingleBlogDetails(procedureName, param);
+            return  _repository.GetSingleBlogDetails(procedureName, param);
         }
     }
 }

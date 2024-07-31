@@ -1,0 +1,50 @@
+﻿@model SingleCultureDisplayModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Page Title-->
+<div class="custom-container">
+    <div class="single-blog-title">
+        <h2 class="title-heading">@Model.Culture.Heading</h2>
+    </div>
+</div>
+<!-- Page Title End-->
+<section class="mt-5 mb-5">
+    <div class="custom-container">
+        <div class="row">
+            < class="col-lg-9">
+                <img src="@Configuration["AdminServerUrlInfo:URL"]/@Model.Culture.ImagePath" alt="@Model.Culture.Heading" class="img-fluid blog-banner">
+                <hr>
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                    <div>
+                        <span class="single-blog-cat">@Model.Culture.CreatedDate.ToString("MMMM dd,  yyyy")</span>
+                    </div>
+                    <!-- <div>
+            <p class="mb-0"><strong>Posted :</strong> December 02, 2020 </p>
+        </div> -->
+                    <div class="blog-list-social mt-1">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <hr>
+                <p style="white-space: pre-line">@Html.Raw(Model.Culture.Description)</p>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <img src="~/realtyagancy/img/admin.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-11">
+                        <h5><strong>Posted by Realty Agency </strong></h5>
+                        <p>@Model.Culture.CreatedDate.ToString("MMMM dd,  yyyy")</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>

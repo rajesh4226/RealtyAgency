@@ -60,6 +60,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Resources\Blogs\" />
+    <Folder Include="wwwroot\Resources\Culture\" />
     <Folder Include="wwwroot\Resources\Vehicles\" />
     <Folder Include="wwwroot\Resources\Products\" />
   </ItemGroup>

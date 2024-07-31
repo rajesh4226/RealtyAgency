@@ -119,5 +119,16 @@ namespace RealtyAgencyMLS.DAL.Repository
                 return singleBlogData;
             };
         }
-    }    
+
+        public async Task<SingleCultureDTO> GetSingleCultureDetails(string procedureName, DynamicParameters param)
+        {
+            var singleCultureData = new SingleCultureDTO();
+            using (IDbConnection conn = new SqlConnection(_connectionFactory.GetConnectionString()))
+            {
+                var reader = await conn.QueryMultipleAsync(procedureName, param, commandType: CommandType.StoredProcedure);
+                singleCultureData.Culture = await reader.ReadFirstAsync<CultureDTO>();
+                return singleCultureData;
+            };
+        }
+    }
 }

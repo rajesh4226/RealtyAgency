@@ -56,6 +56,12 @@ namespace RealtyAgencyMLS.Admin.Models
             CreateMap<VehicleDTO, Vehicle>();
             CreateMap<Vehicle, VehicleDTO>();
 
+            CreateMap<CultureCreateModel, Culture>();
+            CreateMap<Culture, CultureCreateModel>();
+
+            CreateMap<CultureDTO, Culture>();
+            CreateMap<Culture, CultureDTO>();
+
             CreateMap<UserViewModel, RealtyAgents>();
             CreateMap<RealtyAgents, UserViewModel>();
         }

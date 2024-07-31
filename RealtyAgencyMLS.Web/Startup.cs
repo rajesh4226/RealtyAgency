@@ -69,6 +69,7 @@ namespace RealtyAgencyMLS.Web
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IConnectionFactory, ConnectionFactory>();
             services.AddScoped<IBlogCategoryService, BlogCategoryService>();
+            services.AddScoped<ICultureService, CultureService>();
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddSingleton<IMvcControllerDiscovery, MvcControllerDiscovery>();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));

@@ -203,6 +203,9 @@
   <data name="usp_GetAllCompany" xml:space="preserve">
     <value>usp_GetAllCompany</value>
   </data>
+  <data name="usp_GetAllCulture" xml:space="preserve">
+    <value>usp_GetAllCulture</value>
+  </data>
   <data name="usp_GetAllGetAllThingsToDo" xml:space="preserve">
     <value>usp_GetAllGetAllThingsToDo</value>
   </data>

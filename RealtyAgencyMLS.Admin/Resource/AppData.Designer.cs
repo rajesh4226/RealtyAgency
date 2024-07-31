@@ -311,6 +311,14 @@ namespace RealtyAgencyMLS.Admin.Resource {
                 return ResourceManager.GetString("usp_GetAllCompany", resourceCulture);
             }
         }
+        /// <summary>
+       ///   Looks up a localized string similar to usp_GetAllCulture.
+        /// </summary>
+        public static string usp_GetAllCulture {
+            get {
+                return ResourceManager.GetString("usp_GetAllCulture", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to usp_GetAllGetAllThingsToDo.

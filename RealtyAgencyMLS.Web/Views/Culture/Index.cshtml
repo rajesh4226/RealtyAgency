@@ -1,0 +1,87 @@
+﻿@using RealtyAgencyMLS.Model.DTO
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@model CultureViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/css/grt-youtube-popup.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/grt-youtube-popup.css">
+
+<!-- Page Title-->
+<div class="custom-container">
+    <div>
+        <h2 class="title-heading">Our Culture</h2>
+    </div>
+</div>
+<!-- Page Title End-->
+
+
+
+<div class="custom-container">
+    @{
+        bool flag = true;
+        foreach (var item in Model.Culture)
+        {
+            if (flag)
+
+            {
+                <div class="row blog-gap-row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 blog-left-content d-flex justify-content-around flex-column flex-wrap mb-sm-5">
+                        <div>
+                            <h4>
+                                @item.Heading
+                            </h4>.]
+                            <p>
+                            <p style="white-space: pre-line">@Html.Raw(item.Description)</p>
+                        </div>
+                        <div class="blog-btn">
+                            <a href="#" youtubeid="@item.YoutubeVideoLink" class="agent-list-more-btn youtube-link"><i class="fa fa-play-circle-o fa-2x video-fa-icons" aria-hidden="true"></i> Watch Video</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="img-blog-border">
+                            <img src="@Configuration["AdminServerUrlInfo:URL"]/@item.ImagePath" alt="@item.Heading" class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+<div class="row blog-gap-row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="img-blog-border">
+            <img src="@Configuration["AdminServerUrlInfo:URL"]/@item.ImagePath" alt="@item.Heading" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 blog-left-content d-flex justify-content-around flex-column flex-wrap mb-sm-5">
+        <div>
+            <h4>
+                @item.Heading
+            </h4>
+            <p style="white-space: pre-line">@Html.Raw(item.Description)</p>
+        </div>
+        <div class="blog-btn">
+            <a href="#" youtubeid="@item.YoutubeVideoLink" class="agent-list-more-btn youtube-link"><i class="fa fa-play-circle-o fa-2x video-fa-icons" aria-hidden="true"></i> Watch Video</a>
+        </div>
+    </div>
+    <p class="mb-4"><strong>@item.CreatedDate.ToString("MMMM dd,  yyyy")</strong></p>
+    <div class="blog-btn">
+        <a href="/Blogs/Details/@item.PID/@item.Heading" class="agent-list-more-btn">Read More</a>
+    </div>
+</div>
+            }
+
+            flag = flag ? false : true;
+        }
+    }
+
+
+</div>
+<script src="~/js/grt-youtube-popup.js"></script>
+<script>
+    $(".youtube-link").grtyoutube({
+        autoPlay: true,
+        theme: "dark"
+    });
+</script>

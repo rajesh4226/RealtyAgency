@@ -70,6 +70,7 @@ namespace RealtyAgencyMLS.Admin
             services.AddScoped<IVehicleTypeService, VehicleTypeService>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IVehicleService, VehicleService>();
+            services.AddScoped<ICultureService, CultureService>();
             services.AddScoped<IUserManageServices, UserManageServices>();
             services.AddSingleton<IMvcControllerDiscovery, MvcControllerDiscovery>();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));

@@ -61,6 +61,15 @@ namespace RealtyAgencyMLS.Web.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to usp_GetAllBlogs.
         /// </summary>
         public static string usp_GetAllBlogs {
@@ -70,11 +79,29 @@ namespace RealtyAgencyMLS.Web.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to usp_GetAllCulture.
+        /// </summary>
+        public static string usp_GetAllCulture {
+            get {
+                return ResourceManager.GetString("usp_GetAllCulture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to usp_GetSingleBlogDetails.
         /// </summary>
         public static string usp_GetSingleBlogDetails {
             get {
                 return ResourceManager.GetString("usp_GetSingleBlogDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to usp_GetSingleCultureDetails.
+        /// </summary>
+        public static string usp_GetSingleCultureDetails {
+            get {
+                return ResourceManager.GetString("usp_GetSingleCultureDetails", resourceCulture);
             }
         }
     }

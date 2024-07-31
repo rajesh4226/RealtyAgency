@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card custom-card overflow">
+            <div class="col-md-12">
+                <h2 class="main-head">Culture</h2>
+                <button type="button" id="btnAddNewCulturePopup" class="btn btn-sm btn-info mr-2">Add New</button>
+                <hr />
+                <table id="tblCulture" class="table dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>CultureID</th>
+                            <th>Heading</th>
+                            <th>Description</th>
+                            <th>ImagePath</th>
+                            <th>YoutubeVideoLink</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_Create" model="@(new CultureCreateModel())" />
+<div id="editPartial"></div>
+<script src="~/js/manage-culture.js"></script>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

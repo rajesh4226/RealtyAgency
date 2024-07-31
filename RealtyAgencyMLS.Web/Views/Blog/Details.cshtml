@@ -1,0 +1,120 @@
+﻿@model SingleBlogDisplayModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Page Title-->
+<div class="custom-container">
+    <div class="single-blog-title">
+        <h2 class="title-heading">@Model.Blog.Heading</h2>
+    </div>
+</div>
+<!-- Page Title End-->
+<section class="mt-5 mb-5">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-9">
+                <img src="@Configuration["AdminServerUrlInfo:URL"]/@Model.Blog.ImagePath" alt="@Model.Blog.Heading" class="img-fluid blog-banner">
+                <hr>
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                    <div>
+                        <span class="single-blog-cat">@Model.Blog.CreatedDate.ToString("MMMM dd,  yyyy")</span>
+                    </div>
+                    <!-- <div>
+                        <p class="mb-0"><strong>Posted :</strong> December 02, 2020 </p>
+                    </div> -->
+                    <div class="blog-list-social mt-1">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <hr>
+                <p style="white-space: pre-line">@Html.Raw(Model.Blog.Description)</p>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <img src="~/realtyagancy/img/admin.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-11">
+                        <h5><strong>Posted by Realty Agency </strong></h5>
+                        <p>@Model.Blog.CreatedDate.ToString("MMMM dd,  yyyy")</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex">
+                    <p><i class="fa fa-tags" aria-hidden="true"></i> Tags</p>
+                    <div class="pl-3">
+                        <p>
+                            @if (!string.IsNullOrWhiteSpace(Model.Blog.Tags) && Model.Blog.Tags.Split(',').Any())
+                            {
+                                foreach (var item in Model.Blog.Tags.Split(','))
+                                {
+                                    <span class="blog-tags">#@item</span>
+                                }
+                            }
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-5 related-posts-gallery">
+                    <h4>RELATED POSTS</h4>
+                    <div class="row">
+                        @foreach (var item in Model.RelatedBlogs)
+                        {
+                            <div class="col-lg-4">
+                                <a href="/Blogs/Details/@item.PID/@item.BlogUrl">
+                                    <div class="card blog-card">
+                                        <img src="@Configuration["AdminServerUrlInfo:URL"]/@item.ImagePath" alt="@item.Heading" class="card-img-top img-fluid blog-related-img" alt="blog">
+                                        <div class="card-body">
+                                            <p class="card-text">@item.Heading</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="blog-side-cat">
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action active">
+                            <h5>Categories</h5>
+                        </button>
+                        @foreach (var item in Model.BlogCategory)
+                        {
+                            <a href="/Blogs/?currPage=&categoryName=@item.CategoryName" class="list-group-item list-group-item-action"><div class="d-flex justify-content-between">@item.CategoryName <span>(@item.TotalRecords)</span></div></a>
+                        }
+                    </div>
+
+                </div>
+                <div class="mt-5">
+                    <img src="~/realtyagancy/img/ads.jpg" alt="ads" class="w-100">
+                </div>
+                <div class="mt-5">
+                    <div class="recent-post-title">
+                        <h5>Recent Posts</h5>
+                    </div>
+                    @foreach (var item in Model.RecentBlogs)
+                    {
+                        <div class="d-flex justify-content-between mb-2">
+                            <div>
+                                <a href="/Blogs/Details/@item.PID/@item.BlogUrl"> <img src="@Configuration["AdminServerUrlInfo:URL"]/@item.ImagePath" alt="@item.Heading" class="blog-side-recent"></a>
+                            </div>
+                            <div class="pl-3 recent-post-side">
+                                <a href="/Blogs/Details/@item.PID/@item.BlogUrl"><h6>@item.Heading</h6></a>
+                                <h6 class="blog-category">@item.CategoryName</h6>
+                                <h6 class="blog-category">@item.CreatedDate.ToString("MMMM dd,  yyyy")</h6>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
